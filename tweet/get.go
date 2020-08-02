@@ -1,16 +1,16 @@
 package tweet
 
 import (
-	. "github.com/komisan19/twgo/secret"
+  "net/url"
+  . "github.com/komisan19/twgo/secret"
 	. "fmt"
-	"net/url"
 )
 
-func Get() {
+func Get(num string) {
   api := GetTwitterApi()
 
   v := url.Values{}
-  v.Set("count","10")
+  v.Set("count",num)
 
   tweets, err := api.GetHomeTimeline(v)
   if err != nil {
